@@ -65,16 +65,16 @@
                     enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                     consequat.
                 </p>
-                <div class="members-list">
-                    <div class="member-item">
+                <div class="row members-list">
+                    <div class="col col-third text-center">
                         <p class="member-name">Name</p>
                         <img src="./asset/img/member1.jpg" alt="Name" class="member-img">
                     </div>
-                    <div class="member-item">
+                    <div class="col col-third text-center">
                         <p class="member-name">Name</p>
                         <img src="./asset/img/member1.jpg" alt="Name" class="member-img">
                     </div>
-                    <div class="member-item">
+                    <div class="col col-third text-center">
                         <p class="member-name">Name</p>
                         <img src="./asset/img/member1.jpg" alt="Name" class="member-img">
                     </div>
@@ -98,37 +98,37 @@
                     </ul>
 
                     <!-- Places -->
-                    <div class="places-list">
-                        <div class="place-item">
+                    <div class="row places-list">
+                        <div class="col col-third">
                             <img src="./asset/img/place1.jpg" alt="New York" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">New York</h3>
                                 <p class="place-time">Fri 27 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a onclick="openModal()" href="javascript:void(0)" class="place-buy-btn">Buy Tickets</a>
+                                <button class="place-buy-btn js-buy-ticket">Buy Tickets</button>
+                                <!-- onclick="openModal()" -->
                             </div>
                         </div>
-                        <div class="place-item">
+                        <div class="col col-third">
                             <img src="./asset/img/place2.jpg" alt="Paris" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">Paris</h3>
                                 <p class="place-time">Sat 28 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a onclick="openModal()" href="javascript:void(0)" class="place-buy-btn">Buy Tickets</a>
+                                <button class="place-buy-btn js-buy-ticket">Buy Tickets</button>
                             </div>
                         </div>
-                        <div class="place-item">
+                        <div class="col col-third">
                             <img src="./asset/img/place3.jpg" alt="San Francisco" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">San Francisco</h3>
                                 <p class="place-time">Fri 27 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a onclick="openModal()" href="javascript:void(0)" class="place-buy-btn">Buy Tickets</a>
+                                <button class="place-buy-btn js-buy-ticket">Buy Tickets</button>
                             </div>
                         </div>
                         <div class="clear"></div>
                     </div>
-
                 </div>
             </div>
 
@@ -145,14 +145,14 @@
 
         </div>
     </div>
-    <div class="modal" id="modal">
-        <div class="modal-container">
-            <div class="modal-close" onclick="closeModal()" >
+    <div class="modal js-modal" id="modal">
+        <div class="modal-container js-modal-container">
+            <div class="modal-close js-modal-close" onclick="closeModal()" >
                 <i class="ti-close"></i>
             </div>
 
             <header class="modal-header">
-                <i class="ti-bag"></i>
+                <i class="ti-bag modal-ti-bag"></i>
                 Tickets
             </header>
 
@@ -182,14 +182,44 @@
 </body>
 </html>
 
-<script>
+<!-- <script>
   function  openModal(){
         var element = document.getElementById("modal");
         element.classList.add("open");
     }
     function  closeModal(){
         var element = document.getElementById("modal");
-        element.classList.remove("open");
+        element.classList.remove("open");<button class="place-buy-btn js-buy-ticket">Buy Tickets</button>
     }
 
+</script> -->
+<script>
+    const buyBtns = document.querySelectorAll('.js-buy-ticket')
+    const modal = document.querySelector('.modal')
+    const modalContainer = document.querySelector('.js-modal-container')
+    const modalClose = document.querySelector('.js-modal-close')
+    
+
+    // Hàm hiển thi modal mua vé về (Thêm class open vào modal)
+    function showBuyTickets() {
+        modal.classList.add('open')
+    }
+
+     // Hàm ẩn modal mua vé về (Gỡ bỏ class open vào modal)
+    function hideBuyTickets() {
+        modal.classList.remove('open')
+    }
+    
+    // Lặp qua từng thẻ button và nghe hành vi click
+    for (const buyBtn of buyBtns) {
+        buyBtn.addEventListener('click', showBuyTickets)
+    }
+    
+    // Nghe hành vi Click vào button close
+    modalClose.addEventListener('click', hideBuyTickets)
+    modal.addEventListener('click', hideBuyTickets)
+
+    modalContainer.addEventListener('click', function(event) {
+        event.stopPropagation()
+    })
 </script>

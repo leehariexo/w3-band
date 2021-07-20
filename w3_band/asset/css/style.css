@@ -13,15 +13,43 @@ html{
 3 Mau sac
 4 Kieu dang
  */
+ /* row: hàng */
+ /* Col: cột */
+
+
+/* Common: dùng chung */
 .clear{
     clear: both ;
 }
 .text-white{
     color: #fff !important;
 }
+.text-center {
+    text-align: center !important;
+}
+
+.row {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.col {
+    float: left;
+    padding-left:  8px;
+    padding-right: 8px;
+}
+.col-third {
+    width: 33.33333%;
+}
+
+.col-half {
+    width: 50%;
+}
+
  /* #a {
     color: inherit;
 } */
+
+/* Main */
 #main {
 
 }
@@ -170,12 +198,7 @@ html{
 #content .members-list {
     margin-top: 48px; 
 }
-#content .member-item{
-    float: left;
-    width: calc(100%/3);
-    text-align: center;
-    /* width: 33.33333%; */
-}
+
 #content .member-name{
     font-size: 15px;
 }
@@ -224,18 +247,12 @@ html{
 }
 /* Place */
 .places-list{
-    /* margin-top: 32px;
-    margin-left: -8px;
+    margin-top: 32px;
+    /* margin-left: -8px;
     margin-right: -8px; */
-    margin: 32px -8px 48px;
-    /* padding-bottom: 48px; */
+    /* margin: 32px -8px 48px; */
+    padding-bottom: 48px;
     
-}
-.place-item {
-    float:left;
-    width: 33.33333%;
-    padding: 0 8px;
-
 }
 .place-img {
     width: 100%;
@@ -251,7 +268,7 @@ html{
 }
 .place-heading {
     font-size: 15px;
-    font-weight: 00;
+    font-weight: 600;
     
 }
 .place-time {
@@ -300,6 +317,7 @@ html{
     width: 868px;
     max-width: calc(100% - 32px);
     min-height: 200px;
+    animation: modalFadeIn ease .5s;
 }
 
 header.modal-header {
@@ -309,6 +327,7 @@ header.modal-header {
     align-items: center;
     justify-content: center;
     font-size: 30px;
+    letter-spacing: 4px;
     color: #fff;
 }
 .modal-heading-icon{
@@ -368,4 +387,19 @@ header.modal-header {
 } 
 .modal.open{
     display: flex;
+}
+.modal-ti-bag{
+    margin-right: 16px;
+}
+
+@keyframes modalFadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+
+    }
 }
