@@ -8,6 +8,7 @@
     <title>The Band</title>
     <link rel="icon" type="image/jfif" href="./asset/img/orange.jfif">
     <link rel="stylesheet" href="./asset/css/style.css">
+    <link rel="stylesheet" href="./asset/css/responsive.css">
     <link rel="stylesheet" href="./asset/fonts/themify-icons/themify-icons.css">
 </head>
 
@@ -37,6 +38,10 @@
             <!-- Begin: Search button -->
             <div class="search-btn">
                 <i class="search-icon ti-search"></i>
+            </div>
+
+            <div id="mobile-menu" class="mobile-menu-btn">
+                <i class="menu-icon ti-menu"></i>
             </div>
             <!-- End: Search button -->
 
@@ -184,6 +189,20 @@
             <p class="copyright">Powered by <a href="">w3.css</a></p>
         </div>
     </div>
+    <script>
+        var header = document.getElementById('header');
+        var mobileMenu = document.getElementById('mobile-menu');
+    
+        mobileMenu.onclick = function () {
+            var isClosed = header.ClientHeight === 46;
+            if (isClosed) {
+                header.style.height = 'auto';
+            }
+            else {
+                header.style.height = '46px';
+            }
+        }
+    </script>
     <div class="modal js-modal" id="modal">
         <div class="modal-container js-modal-container">
             <div class="modal-close js-modal-close" onclick="closeModal()" >
