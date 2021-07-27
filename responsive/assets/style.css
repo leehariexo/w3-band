@@ -1,0 +1,25 @@
+/* Header */
+html {
+    font-family: Helvetica, Arial, sans-serif;
+}
+#nav {
+    height: 46px;
+    background-color: #000;
+    position: fixed;
+}
+#nav_list li{
+    display: inline-block;
+}
+#nav_list li a {
+    color: #fff;
+    font-size: 16px;
+    padding: 0 20px;
+    line-height: 46px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#nav_list li:hover a {
+    color: #000;
+    background-color: #ccc;
+    display: inline-block;
+}
