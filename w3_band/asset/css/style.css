@@ -6,6 +6,7 @@
 }
 html{
     font-family: Helvetica, Arial, sans-serif;
+    /* scroll-behavior: smooth; */
 }
 /* 
 1 Vi tri
@@ -67,17 +68,19 @@ html{
 
 /* Main */
 #main {
+    overflow: hidden;
 
 }
 
-#header {   
+#header {  
     height: 46px;
-    background-color: #333;
+    background-color: #000;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 2;
+    overflow: hidden;
 }
 #nav{
     display: inline-block;
@@ -139,6 +142,8 @@ html{
 #nav .nav-arrow-down {
     font-size: 12px;
 }
+
+#header .mobile-menu-btn,
 #header .search-btn{
     float: right;
     padding: 0 21px;
@@ -149,6 +154,14 @@ html{
     background-color: #f44336;
 
 }
+#header .mobile-menu-btn:hover {
+    background-color: #ccc;
+}
+#header .mobile-menu-btn:hover .menu-icon{
+    color: #000;
+}
+
+#header .menu-icon,
 #header .search-icon{
     line-height: 46px;
     color: #fff;
@@ -161,7 +174,7 @@ html{
     background-color: #f44336; */
     margin-top: 46px;
     padding-top: 50%;
-    background: url('/asset/img/slider1.jpg') top center / cover no-repeat;
+    background: url('../img/slider1.jpg') top center / cover no-repeat;
     position: relative;
 }
 
@@ -187,9 +200,12 @@ html{
 }
 #content .content-section{
     width: 800px;
+    max-width: 100%;
     padding: 64px 0 112px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
 
 }
 #content .section-heading{
@@ -317,19 +333,19 @@ html{
     margin-top: 48px;
 }
 .contact-info{
+    color: black;
     font-size: 18px;
     line-height: 1.5;
 }
 .contact-info i[class*="ti-"]{
     width: 30px;
     display: inline-block;
-
 }
 .contact-form {
     font-size: 15px;
 }
 .contact-form .form-control{
-    padding: 1px;
+    padding: 10px;
     border: 1px solid #ccc;
     width: 100%;
     /* outline: none; */
@@ -354,18 +370,22 @@ html{
 
 }
 
-.footer .cocials-list{
+#footer .cocials-list{
     font-size: 24px;
     
 }
-.footer .cocials-list a{
+#footer .cocials-list a{
     color: rgba(0, 0, 0, 0.6);
     text-decoration: none;
 }
-.footer .cocials-list a:hover{
+#footer .cocials-list a:hover{
     color: rgba(0, 0, 0, 0.4);
 }
-.footer .copyright{
+#footer .copyright{
+    margin-top: 15px;
+    color: rgba(0, 0, 0, 0.4);
+}
+#footer .copyright a{
     margin-top: 15px;
     color: rgba(0, 0, 0, 0.4);
 }
