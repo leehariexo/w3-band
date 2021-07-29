@@ -80,7 +80,6 @@ html{
     left: 0;
     right: 0;
     z-index: 2;
-    overflow: hidden;
 }
 #nav{
     display: inline-block;
@@ -141,6 +140,12 @@ html{
 } */
 #nav .nav-arrow-down {
     font-size: 12px;
+}
+#header .mobile-menu-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
 }
 
 #header .mobile-menu-btn,
