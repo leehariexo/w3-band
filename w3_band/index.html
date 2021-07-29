@@ -22,7 +22,7 @@
                 <li><a href="#tour">Tour</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
-                    <a href="">
+                    <a href="#">
                         More
                         <i class="nav-arrow-down ti-angle-down"></i>
                     </a>
@@ -151,15 +151,15 @@
                         <form action="">
                             <div class="row ">
                                 <div class="col col-half">
-                                    <input type="text" name="" placeholder="Name" required id="" class="form-control">
+                                    <input type="text" name="" placeholder="Name" required class="form-control">
                                 </div>
                                 <div class="col col-half">
-                                    <input type="email" email="" placeholder="Email" required id="" class="form-control">
+                                    <input type="email" email="" placeholder="Email" required  class="form-control">
                                 </div>
                             </div>
                             <div class="row mt-8">
                                 <div class="col col-full">
-                                    <input type="text" email="" placeholder="Message" required id="" class="form-control">
+                                    <input type="text" email="" placeholder="Message" required class="form-control">
                                 </div>
                             </div>
                             <input class="btn pull-right mt-16 " type="submit" value="SEND">
@@ -192,16 +192,27 @@
     <script>
         var header = document.getElementById('header');
         var mobileMenu = document.getElementById('mobile-menu');
-    
+        var headerHeight = header.clientHeight;
+        // Đóng mở mobile menu
         mobileMenu.onclick = function () {
-            var isClosed = header.ClientHeight === 46;
+            var isClosed = header.clientHeight === headerHeight;
             if (isClosed) {
                 header.style.height = 'auto';
             }
             else {
-                header.style.height = '46px';
+                header.style.height = null;
             }
         }
+
+        // Tự động đóng khi chon menu
+         var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+         for (var i = 0; i < menuItems.length; i++) {
+             var menuItem = menuItems[i];
+
+             menuItem.onclick = function() {
+                 header.style.height = null;
+             }
+         }
     </script>
     <div class="modal js-modal" id="modal">
         <div class="modal-container js-modal-container">
